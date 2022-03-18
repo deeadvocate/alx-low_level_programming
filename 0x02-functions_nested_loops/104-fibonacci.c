@@ -1,25 +1,61 @@
 #include <stdio.h>
+
 /**
- *main - entry point
- *
- *Description:prints first 98 fibonnacci numbers
- *
- *Return: zero(success)
- *
+ * numLength - returns the lenth of string
+ * @num : operand number
+ * Return: number of digits
+ */
+int numLength(int num)
+{
+	int length = 0;
+
+	if (!num)
+	{
+		return (1);
+	}
+
+	while (num)
+	{
+		num = num / 10;
+		length += 1;
+	}
+
+	return (length);
+}
+
+/**
+ * main - prints the first 98 fib
+ * Return: 0
  */
 int main(void)
 {
-	long int i, t1 = 1, t2 = 2, sum = 0;
+	unsigned long f1 = 1, f2 = 2, tmp, mx = 100000000, f10 = 0, f20 = 0, tmp0 = 0;
+	short int i = 1, initial0s;
 
-	for (i = 1; i < 98; i++)
+	while (i <= 98)
 	{
-		printf("%ld, ", t1);
-		sum = t1 + t2;
-		t1 = t2;
-		t2 = sum;
-		if (i == 97)
+		if (f10 > 0)
+			printf("%lu", f10);
+		initial0s = numLength(mx) - 1 - numLength(f1);
+		while (f10 > 0 && initial0s > 0)
 		{
-			printf("%ld\n", t1);
+			printf("%i", 0);
+			initial0s--;
 		}
+		printf("%lu", f1);
+
+		tmp = (f1 + f2) % mx;
+		tmp0 = f10 + f20 + (f1 + f2) / mx;
+		f1 = f2;
+		f10 = f20;
+		f2 = tmp;
+		f20 = tmp0;
+
+		if (i != 98)
+			printf(", ");
+		else
+			printf("\n");
+		i++;
 	}
+	return (0);
 }

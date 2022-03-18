@@ -1,26 +1,19 @@
-#include "holberton.h"
+#include "main.h"
 /**
- *print_last_digit - prints last digit
- *
- *@n:input
- *
- *Description: prints last digit
- *
- *Return:returns last value
- *
+ * print_last_digit - return last digit
+ * @n : number to check
+ * Return: digit between 0 and 9
  */
+
 int print_last_digit(int n)
 {
-	int last;
+	int newdigit;
 
-	if (n >= 0)
-	{
-		last = n % 10;
-	}
-	else if (n < 0)
-	{
-		last = -(n % 10);
-	}
-	_putchar('0' + last);
-	return (last);
+	if (n < 0)
+		newdigit = -1 * (n % 10);
+	else
+		newdigit = n % 10;
+
+	_putchar(newdigit + '0');
+	return (newdigit);
 }

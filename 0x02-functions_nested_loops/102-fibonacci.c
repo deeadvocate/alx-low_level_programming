@@ -1,25 +1,31 @@
 #include <stdio.h>
 /**
- *main - entry point
- *
- *Description:prints first 50 fibonnacci numbers
- *
- *Return: 0(success)
+ * main - prints first 50 numbers of the fibonacci sequence
+ * Return: 0
  */
 int main(void)
 {
-	long int i, t1 = 1, t2 = 2, sum = 0;
+	int i, n;
+	long f1, f2, next;
 
-	for (i = 1; i < 50; i++)
+	f1 = 1;
+	f2 = 2;
+	n = 50;
+
+	for (i = 0; i < n; i++)
 	{
-		printf("%ld, ", t1);
-		sum = t1 + t2;
-		t1 = t2;
-		t2 = sum;
 		if (i == 49)
 		{
-			printf("%ld\n", t1);
+			printf("%lu", f1);
+		}
+		else
+		{
+			printf("%lu, ", f1);
+			next = f1 + f2;
+			f1 = f2;
+			f2 = next;
 		}
 	}
+	printf("\n");
 	return (0);
 }
